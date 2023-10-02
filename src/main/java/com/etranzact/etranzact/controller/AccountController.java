@@ -18,10 +18,10 @@ public class AccountController {
 
     private Account accountService;
 
-    @PutMapping("/{accountId}")
-    public ResponseEntity<CustomerDTO> updateAccount(@Valid @RequestBody AccountDTO account, @PathVariable UUID accountId){
+    @PutMapping("/{customerId}")
+    public ResponseEntity<CustomerDTO> updateAccount(@Valid @RequestBody AccountDTO account, @PathVariable UUID customerId){
 
-        return ResponseEntity.ok(accountService.updateAccount(account,accountId));
+        return ResponseEntity.ok(accountService.updateAccount(account,customerId));
     }
 
 }
