@@ -21,7 +21,7 @@ public class TransactionModel {
     private String accountName;
     @Column(nullable = false)
     private Double amount;
-    @ElementCollection
+    @Enumerated
     private TransactionType transactionType;
     private Timestamp createdAt;
     @UpdateTimestamp
