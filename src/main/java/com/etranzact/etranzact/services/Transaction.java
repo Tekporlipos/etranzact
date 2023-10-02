@@ -4,6 +4,7 @@ package com.etranzact.etranzact.services;
 import com.etranzact.etranzact.model.AccountModel;
 import com.etranzact.etranzact.model.CustomerModel;
 import com.etranzact.etranzact.model.TransactionModel;
+import com.etranzact.etranzact.model.TransactionType;
 import com.etranzact.etranzact.model.dto.CustomerDTO;
 import com.etranzact.etranzact.model.dto.DepositDTO;
 import com.etranzact.etranzact.model.dto.TransactionDTO;
@@ -37,6 +38,7 @@ public class Transaction implements TransactionImp{
         }
         transactionModel.setAmount(depositDTO.getAmount());
         transactionModel.setAccountNumber(depositDTO.getAccountNumber());
+        transactionModel.setTransactionType(TransactionType.DEPOSIT);
         transactionModel.setAccountName(depositDTO.getAccountName());
         return  objectMapper.convertValue(transactionRepository.save(transactionModel),TransactionDTO.class);
     }
@@ -51,6 +53,7 @@ public class Transaction implements TransactionImp{
         }
         transactionModel.setAmount(withDrawDTO.getAmount());
         transactionModel.setAccountNumber(withDrawDTO.getAccountNumber());
+        transactionModel.setTransactionType(TransactionType.WITHDRAW);
         transactionModel.setAccountName(withDrawDTO.getAccountName());
         return  objectMapper.convertValue(transactionRepository.save(transactionModel),TransactionDTO.class);
     }
